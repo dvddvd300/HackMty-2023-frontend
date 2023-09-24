@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+
 import Modal from './modal';
+import { Bars3Icon, StarIcon} from '@heroicons/react/24/outline';
+import SearchIcon from '@mui/icons-material/Search';
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -34,7 +36,7 @@ export default function Example() {
             className="mr-4"
             onClick={() => setIsModalOpen(true)}
           >
-            Open Modal
+            <StarIcon className="h-6 w-6" aria-hidden="true" />
           </button>
           <button
             type="button"
@@ -59,7 +61,7 @@ export default function Example() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-4 space-y-2">

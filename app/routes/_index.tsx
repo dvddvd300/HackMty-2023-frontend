@@ -34,7 +34,7 @@ const recommendedSearches = [
 
 export default function Index() {
   const { t } = useTranslation();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+ 
 
   const handleSearch = (searchText: string): void => {
     throw new Error('Function not implemented.');
@@ -47,7 +47,7 @@ export default function Index() {
 
       <SearchBar onSearch={handleSearch} />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 ml-80 mr-80">
-        {recommendedSearches.map((search, index) => (
+        {recommendedSearches.map((search, index) => (   
           <SearchCard key={index} title={search.title} description={search.description} />
         ))}
       </div>
