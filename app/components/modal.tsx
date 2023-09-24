@@ -4,16 +4,10 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 
 import { Form } from "@remix-run/react";
 
-
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
-
-
-
-
-
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   let [messages, setMessages] = useState([
     { text: 'Hi there! How can I help you today?', isBot: true },

@@ -44,6 +44,7 @@ export default function Index() {
 
 
   function handleFileUpload(fileContent: string): void {
+    
     console.log('Uploaded file content:', fileContent);
   }
 

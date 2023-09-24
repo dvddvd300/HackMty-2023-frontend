@@ -15,21 +15,37 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onUpload }) => {
     }
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
 
     if (selectedFile) {
       const reader = new FileReader();
 
-      reader.onload = (event) => {
+      reader.onload = async (event) => {
         const fileContent = event.target?.result as string;
         onUpload(fileContent);
+        let fileContentM = fileContent + "Analyze Total Revenue, total expenses, net income, and some recommendations about the company's financial health. Perform needed calculations with numerical value"
+        let fetchData = await fetch('/api/files', {
+          method: "POST",
+          body: fileContentM,
+          headers: {
+            "Content-Type": "text/plain" 
+          }
+          
+        });
+        if(fetchData.ok){
+          let response = await fetchData.text()
+          console.log(response)
+        }
       };
 
       reader.readAsText(selectedFile);
       setFile(selectedFile);
     }
+    
   };
+
+  
 
   return (
     <div className="flex items-center justify-center mt-10">
