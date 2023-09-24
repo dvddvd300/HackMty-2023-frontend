@@ -18,16 +18,6 @@ export default function Example() {
           <a href="#" className="text-gray-900 text-lg font-semibold">
             Your Logo
           </a>
-          <div className="lg:hidden">
-            <button
-              type="button"
-              className="p-2 text-gray-700"
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
         </div>
         <div className="hidden lg:flex lg:space-x-4">
           {navigation.map((item) => (
