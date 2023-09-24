@@ -16,16 +16,16 @@ export default function Example() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-md relative z-10">
+    <header className="bg-base-200 text-base-content shadow-md relative z-10">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:p-6 lg:px-8" aria-label="Global">
         <div className="flex items-center space-x-4">
-          <a href="https://i.postimg.cc/ZnrjJt55/named-ai-suite.png" className="text-gray-900 text-lg font-semibold">
+          <a href="https://i.postimg.cc/ZnrjJt55/named-ai-suite.png" className="text-base-content text-lg font-semibold">
             AI.SUITE
           </a>          
         </div>
         <div className="hidden lg:flex lg:space-x-4">
           {navigation.map((item) => (
-            <a key={item.name} href={item.href} className="text-sm font-medium text-gray-700 hover:text-gray-900">
+            <a key={item.name} href={item.href} className="text-sm font-medium text-base-content hover:text-base-content">
               {item.name}
             </a>
           ))}
@@ -40,7 +40,7 @@ export default function Example() {
           </button>
           <button
             type="button"
-            className="lg:hidden p-2 text-gray-700"
+            className="lg:hidden p-2 text-base-content"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -50,14 +50,14 @@ export default function Example() {
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 left-0 z-20 w-full max-w-xs overflow-y-auto bg-white shadow-md">
+        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-full max-w-xs overflow-y-auto bg-white shadow-md">
           <div className="flex justify-between items-center p-4">
-            <a href="#" className="text-gray-900 text-lg font-semibold">
+            <a href="#" className="text-base-content text-lg font-semibold">
               Your Logo
             </a>
             <button
               type="button"
-              className="p-2 text-gray-700"
+              className="p-2 text-base-content"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
@@ -69,7 +69,7 @@ export default function Example() {
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900"
+                className="block px-4 py-2 text-base font-medium text-base-content hover:text-base-content-200"
               >
                 {item.name}
               </a>

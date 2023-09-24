@@ -42,11 +42,13 @@ export default function Index() {
 
 
   return (
-    <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.8' }}>
-      <ImageContainer imageUrl="https://i.postimg.cc/1346H11V/logo-without-text-ai-suite.png" />
-
+    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
+      {/* Example of using a translation string, 
+      Note: if it fails to load the translation file, it will fallback to the key name (the content inside the brackets withouth the ") */}
+      <ImageContainer imageUrl="/staticcontent/logo.png" />
+      
       <SearchBar onSearch={handleSearch} />
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 ml-80 mr-80">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:gap-4 md:gap-4 lg:gap-4 gap-4 mx-4 sm:mx-8 md:mx-16 lg:mx-32 2xl:mx-80 mt-8">
         {recommendedSearches.map((search, index) => (   
           <SearchCard key={index} title={search.title} description={search.description} />
         ))}
