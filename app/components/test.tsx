@@ -17,6 +17,7 @@ function Chatbot() {
     const newMessage: Message = { text: userInput, sender: "User" };
     setChatLog([...chatLog, newMessage]);
     setUserInput("");
+  };
   return (
     <div className="chatbot">
       <div className="chat-log">
