@@ -7,9 +7,9 @@ interface ModalProps {
   onClose: () => void;
 }
 
-interface ApiResponse {
-  response: string;
-}
+
+
+
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState([
@@ -21,51 +21,26 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     setInputValue(event.target.value);
   };
 
-  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (inputValue.trim() !== '') {
-      // Add the user's message to the state
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { text: inputValue, isBot: false },
-      ]);
+      setMessages([...messages, { text: inputValue, isBot: false }]);
       setInputValue('');
-
-      try {
-        const response = await fetch(
-          'https://85d4-131-178-102-148.ngrok-free.app/chatbot',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'text/plain',
-            },
-            body: JSON.stringify({ message: inputValue }),
-          }
-        );
-
-        if (!response.ok) {
-          console.error('Network response not ok. Status:', response.status);
-          throw new Error('Network response was not ok');
-        }
-
-        // Parse the response as ApiResponse and cast it
-        const responseData: ApiResponse = await response.json();
-
-        // Add the bot's response to the state
-        setMessages((prevMessages) => [
-          ...prevMessages,
-          { text: responseData.response, isBot: true },
-        ]);
-      } catch (error) {
-        console.error('API request error:', error);
-      }
     }
+    console.log(inputValue);
+
+    let fetchData = {
+      method: "POST",
+      body: inputValue,
+      headers: {
+        "Content-Type": "text/plain" 
+      }
+    };
   };
+  
 
   const handleClearHistory = () => {
-    setMessages([
-      { text: 'Hi there! How can I help you today?', isBot: true },
-    ]);
+    setMessages([{ text: 'Hi there! How can I help you today?', isBot: true }]);
   };
 
   const handleClose = () => {
