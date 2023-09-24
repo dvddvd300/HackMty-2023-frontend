@@ -15,9 +15,9 @@ export default function Example() {
     <header className="bg-white shadow-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:p-6 lg:px-8" aria-label="Global">
         <div className="flex items-center space-x-4">
-          <a href="#" className="text-gray-900 text-lg font-semibold">
-            Your Logo
-          </a>
+          <a href="https://i.postimg.cc/ZnrjJt55/named-ai-suite.png" className="text-gray-900 text-lg font-semibold">
+            AI.SUITE
+          </a>          
         </div>
         <div className="hidden lg:flex lg:space-x-4">
           {navigation.map((item) => (

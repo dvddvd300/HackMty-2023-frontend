@@ -43,7 +43,7 @@ export default function Index() {
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       {/* Example of using a translation string, 
       Note: if it fails to load the translation file, it will fallback to the key name (the content inside the brackets withouth the ") */}
-      <ImageContainer imageUrl="https://i.postimg.cc/vTSk6ddL/ai.png" /> 
+      <ImageContainer imageUrl="https://i.postimg.cc/1346H11V/logo-without-text-ai-suite.png" /> 
       
       <SearchBar onSearch={handleSearch} />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 ml-80 mr-80">
