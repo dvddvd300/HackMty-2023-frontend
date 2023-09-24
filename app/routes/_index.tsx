@@ -34,7 +34,7 @@ const recommendedSearches = [
 
 export default function Index() {
   const { t } = useTranslation();
- 
+
 
   const handleSearch = (searchText: string): void => {
     throw new Error('Function not implemented.');
