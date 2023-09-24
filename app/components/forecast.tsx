@@ -20,7 +20,7 @@ const data = [
 const ForecastGraph: React.FC = () => {
   return (
     <Paper elevation={3} className="dashboard-card">
-      <Typography variant="h6">Cash Flow Forecast</Typography>
+      <Typography variant="h6" style={{ padding: '5px' }}>Cash Flow Forecast</Typography>
       <div style={{ width: '100%', height: '300px' }}>
         <ResponsiveContainer>
           <LineChart data={data}>

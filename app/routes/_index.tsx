@@ -43,6 +43,10 @@ export default function Index() {
 
 
 
+  function handleFileUpload(fileContent: string): void {
+    console.log('Uploaded file content:', fileContent);
+  }
+
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       {/* Example of using a translation string, 
@@ -50,7 +54,7 @@ export default function Index() {
       <ImageContainer imageUrl="/staticcontent/logo.png" />
       
       
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} onUpload={handleFileUpload} />
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:gap-4 md:gap-4 lg:gap-4 gap-4 mx-4 sm:mx-8 md:mx-16 lg:mx-32 2xl:mx-80 mt-8">
         {recommendedSearches.map((search, index) => (   
           <SearchCard key={index} title={search.title} description={search.description} />
