@@ -35,20 +35,16 @@
 * Directorio inteligente para solución de problemas
   - Utiliza AI Generativa para filtrar información dentro de una empresa y mostrar posibles soluciones
 * Consultaría personalizada a empresas
-  - Permite 
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  - Write distraction free.
-* Cross platform
-  - Windows, macOS and Linux ready.
+  - Permite la generación de paneles interactivos por servicio 
+* Obtener predicciones sobre el estado de salud financiero de la compañia  
+* Uso de APIs personalizadas para mejor manejo de la información
+* Modelo FRIDA e implementación de filtros para segmentar la información
+* Uso de ReversedGPT.V3 API para los reportes personalizados
+* Uso creativo de GoDaddy Domains
+* Permite subir archivos excel y .txt para su analisis
+* UI intuitivo utilizando React y Remix
+* Mantener conversaciones fluidas con el Chatbot de apoyo
+* Permite el uso de Light-theme y Dark-theme
 
 ## How To Use
 
@@ -56,12 +52,12 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [R
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
+$ git clone https://github.com/dvddvd300/HackMty-2023-frontend.git
 ```
 
 ## Run
 
-You can [run]([https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0](https://aisuite.study/))
+You can [run]((https://aisuite.study/))
 
 
 ## Credits
@@ -87,14 +83,14 @@ Reverse DNS:
 
 ## You may also like...
 
-- [Pomolectron](https://www.softtek.com/es/frida-framework-for-intelligent-digital-automation) - FRIDA
-- [Correo]([https://github.com/amitmerchant1990/correo](https://www.softtek.com/es/)) - Softek
+- [FRIDA](https://www.softtek.com/es/frida-framework-for-intelligent-digital-automation) - FRIDA
+- [Softek]([https://github.com/amitmerchant1990/correo](https://www.softtek.com/es/)) - Softek
 
 ## License
 
 MIT
 
----
+-------------
 
 
 
