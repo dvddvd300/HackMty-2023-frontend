@@ -53,8 +53,8 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white p-4 rounded-md max-w-md w-full">
+    <div className="fixed inset-0 bg-accent-content bg-opacity-50 flex justify-center items-center">
+      <div className="bg-base-100 p-4 rounded-md max-w-md w-full">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-medium">Seek help</h2>
           <button className="p-2" onClick={onClose}>
@@ -66,7 +66,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <div
               key={index}
               className={`${
-                message.isBot ? 'text-gray-700' : 'text-white bg-blue-500 self-end'
+                message.isBot ? 'text-gray-700' : 'text-base-content bg-blue-500 self-end'
               } p-2 rounded-md max-w-xs`}
             >
               {message.text}
