@@ -5,7 +5,6 @@ import SearchBar from '~/components/searchBar';
 import SearchCard from '~/components/grid';
 import ImageContainer from '~/components/logo';
 import type { V2_MetaFunction } from '@remix-run/cloudflare';
-import Chatbot from '~/components/test';
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -47,7 +46,7 @@ export default function Index() {
       {/* Example of using a translation string, 
       Note: if it fails to load the translation file, it will fallback to the key name (the content inside the brackets withouth the ") */}
       <ImageContainer imageUrl="/staticcontent/logo.png" />
-      <Chatbot />
+      
       
       <SearchBar onSearch={handleSearch} />
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:gap-4 md:gap-4 lg:gap-4 gap-4 mx-4 sm:mx-8 md:mx-16 lg:mx-32 2xl:mx-80 mt-8">
