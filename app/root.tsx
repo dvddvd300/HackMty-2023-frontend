@@ -68,7 +68,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen bg-base text-base-content">
         <div className="flex-none">
         <Header />
         </div>

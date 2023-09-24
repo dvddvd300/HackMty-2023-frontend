@@ -15,12 +15,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   };
 
   return (
-    <div className="flex items-center justify-center mt-10"> 
-      <div className="flex items-center rounded-full border border-black-300 p-4"> 
+    <div className="flex items-center justify-center mt-10">
+      <div className="flex items-center rounded-full border-2 border-neutral-content bg-base p-4 shadow-neutral-content shadow-inner">
         <input
           type="text"
           placeholder="Deep dive..."
-          className="w-72 sm:w-96 px-4 py-2 focus:outline-none"  
+          className="w-72 sm:w-96 px-4 py-2 focus:outline-none bg-transparent"
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
           onKeyPress={(e) => {

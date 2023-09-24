@@ -1,10 +1,15 @@
-
+import type { Config } from 'tailwindcss'
 
 export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
+  daisyui: {
+    themes: ["light", "dark"],
+  },
 } satisfies Config
 
