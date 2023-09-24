@@ -1,31 +1,27 @@
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react';
+import { Dialog } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
   { name: 'Product', href: '#' },
   { name: 'Features', href: '#' },
   { name: 'Company', href: '#' },
-]
+];
 
 export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gray-100 shadow-md">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex flex-1">
-          <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                {item.name}
-              </a>
-            ))}
-          </div>
-          <div className="flex lg:hidden">
+    <header className="bg-white shadow-md">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:p-6 lg:px-8" aria-label="Global">
+        <div className="flex items-center space-x-4">
+          <a href="#" className="text-gray-900 text-lg font-semibold">
+            Your Logo
+          </a>
+          <div className="lg:hidden">
             <button
               type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="p-2 text-gray-700"
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
@@ -33,64 +29,49 @@ export default function Example() {
             </button>
           </div>
         </div>
-        <a href="#" className="-m-1.5 p-1.5">
-          <span className="sr-only">Your Company</span>
-          <img className="h-10 w-auto" src="/staticcontent/icons8-contacts-188.png" alt="" />
-        </a>
-        <div className="flex flex-1 justify-end">
-          <a
-            href="#"
-            className="rounded-md bg-indigo-100 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            <img
-              className="h-8 w-auto"
-              src="/staticcontent/icons8-search-188.png"
-              alt="Search"
-            />
+        <div className="hidden lg:flex lg:space-x-4">
+          {navigation.map((item) => (
+            <a key={item.name} href={item.href} className="text-sm font-medium text-gray-700 hover:text-gray-900">
+              {item.name}
+            </a>
+          ))}
+        </div>
+        <div className="flex items-center">
+          <a href="#" className="mr-4">
+            <img className="h-8 w-auto" src="/staticcontent/icons8-search-188.png" alt="Search" />
           </a>
+          <button
+            type="button"
+            className="lg:hidden p-2 text-gray-700"
+            onClick={() => setMobileMenuOpen(true)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          </button>
         </div>
       </nav>
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-full overflow-y-auto bg-gray-100 shadow-md px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex flex-1">
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                className="h-10 w-auto"
-                src="/staticcontent/icons8-contacts-188.png"
-                alt=""
-              />
+        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-full max-w-xs overflow-y-auto bg-white shadow-md">
+          <div className="flex justify-between items-center p-4">
+            <a href="#" className="text-gray-900 text-lg font-semibold">
+              Your Logo
             </a>
-            <div className="flex flex-1 justify-end">
-              <a
-            href="#"
-            className="rounded-md bg-indigo-100 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            <img
-              className="h-8 w-auto"
-              src="/staticcontent/icons8-search-188.png"
-              alt="Search"
-            />
-          </a>
-            </div>
+            <button
+              type="button"
+              className="p-2 text-gray-700"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Close menu</span>
+              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            </button>
           </div>
-          <div className="mt-6 space-y-2">
+          <div className="mt-4 space-y-2">
             {navigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                className="block px-4 py-2 text-base font-medium text-gray-700 hover:text-gray-900"
               >
                 {item.name}
               </a>
@@ -99,5 +80,5 @@ export default function Example() {
         </Dialog.Panel>
       </Dialog>
     </header>
-  )
+  );
 }
