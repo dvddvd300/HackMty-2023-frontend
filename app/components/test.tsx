@@ -19,7 +19,7 @@ function Chatbot() {
     setUserInput("");
 
     // Call your chatbot API here and handle the response
-    fetch("https://85d4-131-178-102-148.ngrok-free.app/chatbot", {
+    fetch("https://1d0c-131-178-102-148.ngrok-free.app/chatbot", {
       method: "POST",
       body: userInput,
       headers: {
