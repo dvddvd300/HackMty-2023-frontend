@@ -7,21 +7,54 @@ interface ModalProps {
   onClose: () => void;
 }
 
+
+interface ApiResponse {
+  response: string; 
+}
+
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [messages, setMessages] = useState([
     { text: 'Hi there! How can I help you today?', isBot: true },
   ]);
   const [inputValue, setInputValue] = useState('');
 
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (inputValue.trim() !== '') {
+      // Add the user's message to the state
+
       setMessages([...messages, { text: inputValue, isBot: false }]);
       setInputValue('');
+ 
+
+      try {
+      
+        const response = await fetch('https://85d4-131-178-102-148.ngrok-free.app/chatbot', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+          body: JSON.stringify({ message: inputValue }),
+          
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        // Parse the response as ApiResponse and cast it
+        const responseData: ApiResponse = await response.json();
+
+        // Add the bot's response to the state
+        setMessages([...messages, { text: responseData.response, isBot: true }]);
+      } catch (error) {
+        console.error('API request error:', error);
+      }
     }
   };
 
@@ -37,7 +70,6 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) {
     return null;
   }
-
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
       <div className="bg-white p-4 rounded-md max-w-md w-full">
