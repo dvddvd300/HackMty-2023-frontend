@@ -9,8 +9,12 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.10",
     "@remix-run/cloudflare": "^1.19.3",
     "@remix-run/cloudflare-pages": "^1.19.3",
     "@remix-run/css-bundle": "^1.19.3",
