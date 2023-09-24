@@ -14,5 +14,4 @@ const SearchCard: React.FC<SearchCardProps> = ({ title, description }) => {
     </div>
   );
 };
-
 export default SearchCard;

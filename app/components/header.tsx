@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import Modal from './modal';
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -10,9 +11,10 @@ const navigation = [
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-md relative z-10">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:p-6 lg:px-8" aria-label="Global">
         <div className="flex items-center space-x-4">
           <a href="https://i.postimg.cc/ZnrjJt55/named-ai-suite.png" className="text-gray-900 text-lg font-semibold">
@@ -27,9 +29,13 @@ export default function Example() {
           ))}
         </div>
         <div className="flex items-center">
-          <a href="#" className="mr-4">
-            <img className="h-8 w-auto" src="/staticcontent/icons8-search-188.png" alt="Search" />
-          </a>
+          <button
+            type="button"
+            className="mr-4"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Open Modal
+          </button>
           <button
             type="button"
             className="lg:hidden p-2 text-gray-700"
@@ -42,7 +48,7 @@ export default function Example() {
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
         <div className="fixed inset-0 z-10" />
-        <Dialog.Panel className="fixed inset-y-0 left-0 z-10 w-full max-w-xs overflow-y-auto bg-white shadow-md">
+        <Dialog.Panel className="fixed inset-y-0 left-0 z-20 w-full max-w-xs overflow-y-auto bg-white shadow-md">
           <div className="flex justify-between items-center p-4">
             <a href="#" className="text-gray-900 text-lg font-semibold">
               Your Logo
@@ -69,6 +75,7 @@ export default function Example() {
           </div>
         </Dialog.Panel>
       </Dialog>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </header>
   );
 }
