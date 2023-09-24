@@ -16,20 +16,20 @@ export const meta: V2_MetaFunction = () => {
 
 const recommendedSearches = [
   {
-    title: 'Recommended Search 1',
-    description: 'Description for recommended search 1.',
+    title: 'Human Resources',
+    description: 'Talent acquisition and recruitment, employee relations and conflict resolution, training and development programs, and managing payroll and benefits.',
   },
   {
-    title: 'Recommended Search 2',
-    description: 'Description for recommended search 2.',
+    title: 'Finance and Accounting',
+    description: 'Predicting future financial trends, detecting fraud, optimizing investments, and assessing and mitigating risks.',
   },
   {
-    title: 'Recommended Search 3',
-    description: 'Description for recommended search 3.',
+    title: 'Sales and Marketing',
+    description: 'Understanding customer sentiment, tracking social media engagement and trends, conducting market research and competitive analysis.',
   },
   {
-    title: 'Recommended Search 4',
-    description: 'Description for recommended search 4.',
+    title: 'Operations',
+    description: 'Optimizing production processes, enhancing supply chain management, improving facilities management, and automating routine tasks for efficiency.',
   },
 ];
 
