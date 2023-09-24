@@ -34,6 +34,7 @@
     "@cloudflare/workers-types": "^3.19.0",
     "@remix-run/dev": "^1.19.3",
     "@remix-run/eslint-config": "^1.19.3",
+    "@types/express": "^4.17.18",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.0.11",
     "@types/tailwindcss": "^3.1.0",

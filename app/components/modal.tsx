@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 
+import { Form } from "@remix-run/react";
+
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -12,30 +15,36 @@ interface ModalProps {
 
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
-  const [messages, setMessages] = useState([
+  let [messages, setMessages] = useState([
     { text: 'Hi there! How can I help you today?', isBot: true },
   ]);
-  const [inputValue, setInputValue] = useState('');
+  let [inputValue, setInputValue] = useState('I need to find someone ...');
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  let handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
-  const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  let handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    // event.preventDefault();
     if (inputValue.trim() !== '') {
-      setMessages([...messages, { text: inputValue, isBot: false }]);
+      inputValue = inputValue.trim() + '\n';
+      await setMessages([...messages, { text: inputValue, isBot: false }]);
       setInputValue('');
     }
     console.log(inputValue);
 
-    let fetchData = {
+    let fetchData = await fetch('/api/chat', {
       method: "POST",
       body: inputValue,
       headers: {
         "Content-Type": "text/plain" 
       }
-    };
+    });
+
+    if (fetchData.ok) {
+      let response = await fetchData.text();
+      await setMessages([...messages, { text: inputValue, isBot: false }, { text: response, isBot: true }]);
+    }
   };
   
 
@@ -61,33 +70,33 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <XMarkIcon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="flex flex-col space-y-2 flex-grow max-h-[75vh] overflow-y-auto">
+        <div className="flex flex-col space-y-2 flex-grow max-h-[70vh] overflow-y-auto">
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`${
-                message.isBot ? 'text-gray-700' : 'text-base-content bg-blue-500 self-end'
-              } p-2 rounded-md max-w-xs`}
+              className={`${message.isBot ? 'text-accent-content bg-green-500' : 'text-accent-content bg-blue-500 self-end'}
+              p-2 rounded-md max-w-xs shadow-inner shadow-neutral-content
+              `}
             >
               {message.text}
             </div>
           ))}
         </div>
-        <form onSubmit={handleFormSubmit} className="mt-4 flex-none flex">
+        <Form replace onSubmit={handleFormSubmit} className="mt-4 flex-none flex">
           <input
             type="text"
             value={inputValue}
             onChange={handleInputChange}
-            className="w-full border-gray-300 rounded-md p-2 mr-2"
+            className="w-full border-gray-300 rounded-md p-2 mr-2 shadow-inner shadow-base-200"
             placeholder="Type your message here..."
           />
           <button
             type="submit"
-            className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-md"
+            className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-md shadow-inner shadow-neutral-content"
           >
             Send
           </button>
-        </form>
+        </Form>
         <button onClick={handleClearHistory} className="mt-4 flex-none">
           Clear History
         </button>
