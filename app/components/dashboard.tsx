@@ -5,7 +5,7 @@ import ForecastGraph from './forecast';
  // Create a RecommendationSection component
 // Create a ForecastGraph component
 
-const CashFlowDashboard: React.FC = () => {
+const Dashboard = () => {
   return (
     <div>
       <Typography variant="h4" gutterBottom>
@@ -60,4 +60,4 @@ const CashFlowDashboard: React.FC = () => {
   );
 };
 
-export default CashFlowDashboard;
+export default Dashboard;
