@@ -7,8 +7,8 @@ import { useTranslation } from "react-i18next";
 
 export const meta: V2_MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "AI SUITE" },
+    { name: "description", content: "Welcome to AISuite!" },
   ];
 };
 

@@ -43,7 +43,6 @@ const Dashboard = () => {
           <Paper elevation={3} className="dashboard-card" style={{ margin: componentMargin }}>
             <Typography variant="h6" style={{ padding: '5px' }} >Net Income</Typography>
             <Typography variant="h4" style={{ padding: '5px' }}>$5,000</Typography>
-            <Typography variant="h4" style={{ padding: '5px' }}>$5,000</Typography>
             <Button variant="contained" color="secondary">
               Details
             </Button>
