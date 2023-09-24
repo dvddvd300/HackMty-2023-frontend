@@ -19,7 +19,7 @@ export default function Example() {
     <header className="bg-base-200 text-base-content shadow-md relative z-10">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:p-6 lg:px-8" aria-label="Global">
         <div className="flex items-center space-x-4">
-          <a href="https://i.postimg.cc/ZnrjJt55/named-ai-suite.png" className="text-base-content text-lg font-semibold">
+          <a href="/" className="text-base-content text-lg font-semibold">
             AI.SUITE
           </a>          
         </div>
