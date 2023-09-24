@@ -17,31 +17,6 @@ function Chatbot() {
     const newMessage: Message = { text: userInput, sender: "User" };
     setChatLog([...chatLog, newMessage]);
     setUserInput("");
-
-    // Call your chatbot API here and handle the response
-    fetch("https://1d0c-131-178-102-148.ngrok-free.app/chatbot", {
-      method: "POST",
-      body: userInput,
-      headers: {
-        "Content-Type": "text/plain",
-      },
-      mode: 'no-cors'
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.text();
-      })
-      .then((data) => {
-        const botMessage: Message = { text: data, sender: "Bot" };
-        setChatLog([...chatLog, botMessage]);
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
-  };
-
   return (
     <div className="chatbot">
       <div className="chat-log">
