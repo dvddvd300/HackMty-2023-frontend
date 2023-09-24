@@ -53,15 +53,15 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   }
 
   return (
-    <div className="fixed inset-0 bg-accent-content bg-opacity-50 flex justify-center items-center">
-      <div className="bg-base-100 p-4 rounded-md max-w-md w-full">
-        <div className="flex justify-between items-center mb-4">
+    <div className="fixed inset-0 bg-accent-content bg-opacity-50 flex justify-end items-end ">
+      <div className="bg-base-100 p-4 rounded-md max-w-md w-full min-h-[50vh] flex flex-col sm:m-4 md:m-8 lg:m-12 xl:mx-16 z-10">
+        <div className="flex justify-between items-center mb-4 flex-none">
           <h2 className="text-lg font-medium">Seek help</h2>
           <button className="p-2" onClick={onClose}>
             <XMarkIcon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="flex flex-col space-y-2">
+        <div className="flex flex-col space-y-2 flex-grow max-h-[75vh] overflow-y-auto">
           {messages.map((message, index) => (
             <div
               key={index}
@@ -73,7 +73,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             </div>
           ))}
         </div>
-        <form onSubmit={handleFormSubmit} className="mt-4 flex">
+        <form onSubmit={handleFormSubmit} className="mt-4 flex-none flex">
           <input
             type="text"
             value={inputValue}
@@ -88,7 +88,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             Send
           </button>
         </form>
-        <button onClick={handleClearHistory} className="mt-4">
+        <button onClick={handleClearHistory} className="mt-4 flex-none">
           Clear History
         </button>
       </div>
