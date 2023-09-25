@@ -1,13 +1,15 @@
+import { Container } from '@mui/material';
 import React, { useState } from 'react';
 
 interface SearchBarProps {
   onSearch: (searchText: string) => void;
-  onUpload: (fileContent: string) => void; // Add a callback for handling uploaded files
+  onUpload: (fileContent: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onUpload }) => {
   const [searchText, setSearchText] = useState('');
-  const [file, setFile] = useState<File | null>(null); // Store the uploaded file
+  const [file, setFile] = useState<File | null>(null);
+  const [responseText, setResponseText] = useState<string>('');
 
   const handleSearch = () => {
     if (searchText.trim() !== '') {
@@ -24,31 +26,29 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onUpload }) => {
       reader.onload = async (event) => {
         const fileContent = event.target?.result as string;
         onUpload(fileContent);
-        let fileContentM = fileContent + "Analyze Total Revenue, total expenses, net income, and some recommendations about the company's financial health. Perform needed calculations with numerical value"
+        let fileContentM = fileContent + "Analyze Total Revenue, total expenses, net income, and some recommendations about the company's financial health. Perform needed calculations with numerical value";
         let fetchData = await fetch('/api/files', {
           method: "POST",
           body: fileContentM,
           headers: {
-            "Content-Type": "text/plain" 
+            "Content-Type": "text/plain"
           }
-          
+
         });
-        if(fetchData.ok){
-          let response = await fetchData.text()
-          console.log(response)
+        if (fetchData.ok) {
+          const response = await fetchData.text();
+          console.log(response);
+          setResponseText(response);
         }
       };
 
       reader.readAsText(selectedFile);
       setFile(selectedFile);
     }
-    
   };
 
-  
-
   return (
-    <div className="flex items-center justify-center mt-10">
+    <div className="flex flex-col items-center">
       <div className="flex items-center rounded-full border-2 border-neutral-content bg-base p-4 shadow-neutral-content shadow-inner">
         <label className="cursor-pointer">
           <input
@@ -73,6 +73,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch, onUpload }) => {
             }
           }}
         />
+      </div>
+      <div className="container mt-4 bg-base-200">
+        <p className="bg-base-200 rounded-lg p-4 ">{responseText}</p>
       </div>
     </div>
   );
